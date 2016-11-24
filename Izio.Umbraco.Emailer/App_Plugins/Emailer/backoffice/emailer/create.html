@@ -1,0 +1,25 @@
+﻿<form name="create" ng-controller="Emailer.CreateController" ng-show="loaded" ng-submit="save(form)" val-form-manager>
+    <umb-panel>
+        <div class="umb-panel-body no-header umb-scrollable row-fluid">
+            <div class="tab-content form-horizontal">
+                <div class="umb-pane">
+                    <umb-control-group label="Form name" description="The name of the form">
+                        <input type="text" class="umb-editor umb-textstring" ng-model="form.Name" placeholder="form name" required />
+                    </umb-control-group>
+                    <div class="umb-panel-footer">
+                        <div class="btn-toolbar umb-btn-toolbar pull-right">
+                            <a class="btn btn-link" ng-click="cancel()">
+                                <localize key="cancel" />
+                            </a>
+                            <button type="submit" class="btn btn-primary" data-hotkey="ctrl+s" ng-disabled="!create.$valid">
+                                <localize key="buttons_save">Save</localize>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </umb-panel>
+</form>
+
+

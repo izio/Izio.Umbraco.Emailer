@@ -1,0 +1,8 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+	
+@{
+    if (string.IsNullOrEmpty(((string)Model.MacroParameters["Form"])) == false && Model.MacroParameters["Form"].ToString() != "null")
+    {
+        @Html.Action("Render", "Emailer", new { area = "Emailer", formReference = Model.MacroParameters["Form"].ToString() })
+    }
+}

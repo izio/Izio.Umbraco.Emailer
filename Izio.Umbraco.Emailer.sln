@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izio.Umbraco.Emailer", "Izio.Umbraco.Emailer\Izio.Umbraco.Emailer.csproj", "{FD1CA527-77CC-4DB2-B126-9D9E0B43D242}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Izio.Umbraco.Emailer.Packaging", "Izio.Umbraco.Emailer.Packaging\Izio.Umbraco.Emailer.Packaging.shproj", "{555E96E8-A97E-4EC8-900A-78C5AB174366}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Izio.Umbraco.Emailer.Packaging\Izio.Umbraco.Emailer.Packaging.projitems*{555e96e8-a97e-4ec8-900a-78c5ab174366}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD1CA527-77CC-4DB2-B126-9D9E0B43D242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1CA527-77CC-4DB2-B126-9D9E0B43D242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1CA527-77CC-4DB2-B126-9D9E0B43D242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1CA527-77CC-4DB2-B126-9D9E0B43D242}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+﻿{
+	propertyEditors: [
+        {
+            alias: "Emailer.Picker",
+            name: "Emailer Picker",
+			isParameterEditor: true,
+            editor: {
+                view: "~/App_Plugins/Emailer/picker.html",
+				valueType: "STRING"
+            }
+        }
+    ],
+
+	javascript: [
+		"~/App_Plugins/Emailer/backoffice/emailer/emailer.controller.js",
+		"~/App_Plugins/Emailer/picker.controller.js"
+	]
+}

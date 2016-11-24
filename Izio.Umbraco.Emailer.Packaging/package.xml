@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <% files.forEach(function(file) { %>
+    <file>
+      <guid><%= file.guid %></guid>
+      <orgPath><%= file.dir %></orgPath>
+      <orgName><%= file.name %></orgName>
+    </file>
+    <% }); %>
+  </files>
+  <info>
+    <package>
+      <name><%= name %></name>
+      <version><%= version %></version>
+      <iconUrl />
+      <license url="<%= licenseUrl%>"><%= license%></license>
+      <url><%= url %></url>
+      <requirements>
+        <major>7</major>
+        <minor>5</minor>
+        <patch>3</patch>
+      </requirements>
+    </package>
+    <author>
+      <name><%= author %></name>
+      <website><%= authorUrl %></website>
+    </author>
+    <readme><![CDATA[<%= readme %>]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros>
+    <macro>
+      <name>Emailer Form</name>
+      <alias>EmailerForm</alias>
+      <scriptType />
+      <scriptAssembly />
+      <scriptingFile>~/Views/MacroPartials/Izio/EmailerForm.cshtml</scriptingFile>
+      <xslt />
+      <useInEditor>True</useInEditor>
+      <dontRender>False</dontRender>
+      <refreshRate>0</refreshRate>
+      <cacheByMember>False</cacheByMember>
+      <cacheByPage>False</cacheByPage>
+      <properties>
+        <property name="Form" alias="Form" sortOrder="0" propertyType="Emailer.Picker" />
+      </properties>
+    </macro>
+  </Macros>
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions>
+    <Action runat="install" undo="true" alias="Emailer_Setup" />
+  </Actions>
+</umbPackage>

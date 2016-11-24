@@ -1,0 +1,43 @@
+﻿@using Izio.Umbraco.Emailer.Controllers
+@model Izio.Umbraco.Emailer.ViewModels.EmailerViewModel
+
+@if (TempData["EmailSent"] == null || (bool)TempData["EmailSent"] == false)
+{
+    @Html.ValidationSummary()
+
+    using (Html.BeginUmbracoForm<EmailerController>("Submit", FormMethod.Post, new { id = "contact-form", area = "Emailer" }))
+    {
+        <fieldset>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { maxlength = "255", data_validate = "required" })
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { maxlength = "255", data_validate = "required,email" })
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Subject)
+                    @Html.TextBoxFor(m => m.Subject, new { maxlength = "255", data_validate = "required" })
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Body)
+                    @Html.TextAreaFor(m => m.Body, new { data_validate = "required" })
+                </li>
+                <li>
+                    @Html.HiddenFor(m => m.SubmissionStamp)
+                    @Html.HiddenFor(m => m.FormReference)
+                    @AntiForgery.GetHtml()
+                    <input type="submit" value="Submit" />
+                </li>
+            </ol>
+        </fieldset>
+    }
+}
+else
+{
+    <div class="box confirmation">
+        @Html.Raw(TempData["ConfirmationMessage"])
+    </div>
+}

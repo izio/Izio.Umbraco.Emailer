@@ -1,0 +1,5 @@
+﻿<div ng-controller="Emailer.PickerController">
+    <select ng-model="model.value" class="umb-editor umb-dropdown" required>
+        <option ng-repeat="form in forms" value="{{form.Reference}}" ng-selected="{{form.Reference == model.value}}">{{form.Name}}</option>
+    </select>
+</div>

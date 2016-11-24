@@ -1,0 +1,87 @@
+﻿<form name="edit" ng-controller="Emailer.EditController" ng-show="loaded" ng-submit="save(form)" val-form-manager>
+    <umb-panel>
+        <umb-header tabs="tabs">
+            <div class="span8">
+                <h1>Edit</h1>
+            </div>
+            <div class="span4">
+                <div class="btn-toolbar umb-btn-toolbar pull-right">
+                    <button type="submit" class="btn btn-primary" data-hotkey="ctrl+s" ng-disabled="!edit.$valid">
+                        <localize key="buttons_save">Save</localize>
+                    </button>
+                </div>
+            </div>
+        </umb-header>
+        <umb-tab-view>
+            <umb-tab id="tab1">
+
+                <div class="umb-pane">
+                    <umb-control-group label="Form name" description="The name of the form">
+                        <input type="text" class="umb-editor umb-textstring" ng-model="form.Name" placeholder="Please enter the form name" required />
+                    </umb-control-group>
+                    <umb-control-group label="Form reference" description="The unique reference number of the form">
+                        <input type="text" class="umb-editor umb-textstring" ng-model="form.Reference" required disabled />
+                    </umb-control-group>
+                    <umb-control-group label="Destination Address" description="The email address the form submission should be sent to">
+                        <input type="email" class="umb-editor umb-textstring" ng-model="form.DestinationAddress" placeholder="destination email address" required />
+                    </umb-control-group>
+                    <umb-control-group label="Submission Limit" description="The minimum number of seconds a user must spend completing the form">
+                        <select ng-model="form.SubmissionLimit" class="umb-editor">
+                            <option value="0" ng-selected="form.SubmissionLimit == 0">No Limit</option>
+                            <option value="5" ng-selected="form.SubmissionLimit == 5">Five seconds</option>
+                            <option value="10" ng-selected="form.SubmissionLimit == 10">Ten seconds</option>
+                            <option value="15" ng-selected="form.SubmissionLimit == 15">Fifteen seconds</option>
+                        </select><br>
+                    </umb-control-group>
+                    <umb-control-group label="Confirmation Message" description="The confirmation message that is displayed to the user when their email is submitted">
+                        <umb-editor name="template" model="ConfirmationMessage"></umb-editor>
+                    </umb-control-group>
+                </div>
+            </umb-tab>
+            <umb-tab id="tab2">
+                <div class="umb-pane">
+                    <p>
+                        This is the template that will be used to send the message to the specified recipient. You can use the following substitutions in your template to display content from the user.
+                    </p>
+                    <ul>
+                        <li>"[name]" to display the name of the sender</li>
+                        <li>"[email]" to display the email address of the sender</li>
+                        <li>"[subject]" to display the subject of the senders message</li>
+                        <li>"[body]" to display the body of the senders message</li>
+                    </ul>
+                    <umb-control-group label="Subject" description="The subject line of the email">
+                        <input type="text" class="umb-editor umb-textstring" ng-model="form.TemplateSubject" required />
+                    </umb-control-group>
+                    <umb-control-group label="Body" description="The body of the email">
+                        <umb-editor name="template" model="TemplateBody"></umb-editor>
+                    </umb-control-group>
+                </div>
+            </umb-tab>
+            <umb-tab id="tab3">
+                <div class="umb-pane">
+                    <p>
+                        This is the template that will be used to notify the sender that the message has been sent. You can use the following substitutions in your template to display content from the user.
+                    </p>
+                    <ul>
+                        <li>"[name]" to display the name of the sender</li>
+                        <li>"[email]" to display the email address of the sender</li>
+                        <li>"[subject]" to display the subject of the senders message</li>
+                        <li>"[body]" to display the body of the senders message</li>
+                    </ul>
+                    <umb-control-group label="Enabled" description="Whether the auto-responder is enabled or not">
+                        <input type="checkbox" ng-model="form.ResponderEnabled" />
+                    </umb-control-group>
+                    <umb-control-group label="Responder Address" description="The email address the auto-responder message will be sent from">
+                        <input type="email" class="umb-editor umb-textstring" ng-model="form.ResponderAddress" />
+                    </umb-control-group>
+                    <umb-control-group label="Subject" description="The subject line of the auto-responder email">
+                        <input type="text" class="umb-editor umb-textstring" ng-model="form.ResponderSubject" />
+                    </umb-control-group>
+                    <umb-control-group label="Body" description="The body of the auto-responder email">
+                        <umb-editor name="template" model="ResponderBody"></umb-editor>
+                    </umb-control-group>
+                </div>
+            </umb-tab>
+        </umb-tab-view>
+    </umb-panel>
+</form>
