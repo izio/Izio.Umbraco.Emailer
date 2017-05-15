@@ -2,7 +2,7 @@
 module.exports = function (grunt) {
 
     var name = "Izio.Umbraco.Emailer";
-    var version = "1.0.0";
+    var version = "1.0.1";
     var namespace = "Izio.Umbraco";
     var source = "../Izio.umbraco.Emailer/";
     var destination = "../Izio.umbraco.Emailer.Package/";
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
                 dest: destination,
                 options: {
                     name: "Izio.Umbraco.Emailer",
-                    version: "1.0.0",
+                    version: version,
                     url: "http://www.izio.co.uk",
                     license: "MIT",
                     licenseUrl: "http://www.izio.co.uk/license/mit",

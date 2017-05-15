@@ -15,11 +15,14 @@ namespace Izio.Umbraco.Emailer.Installation
 
         public static void GrantPermissions()
         {
-            var recordCount = Db.ExecuteScalar<int>("SELECT COUNT(*) FROM umbracoUser2app WHERE [user] = @0 AND app = 'izioEmailer'", UmbracoContext.Current.Security.CurrentUser.Id);
-
-            if (recordCount == 0)
+            if (UmbracoContext.Current.Security.CurrentUser != null)
             {
-                Db.Execute("INSERT INTO umbracoUser2app ([user], app) VALUES  (@0, 'izioEmailer')", UmbracoContext.Current.Security.CurrentUser.Id);
+                var recordCount = Db.ExecuteScalar<int>("SELECT COUNT(*) FROM umbracoUser2app WHERE [user] = @0 AND app = 'izioEmailer'", UmbracoContext.Current.Security.CurrentUser.Id);
+
+                if (recordCount == 0)
+                {
+                    Db.Execute("INSERT INTO umbracoUser2app ([user], app) VALUES  (@0, 'izioEmailer')", UmbracoContext.Current.Security.CurrentUser.Id);
+                }
             }
         }
 
