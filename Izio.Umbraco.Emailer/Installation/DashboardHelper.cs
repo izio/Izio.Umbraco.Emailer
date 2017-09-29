@@ -36,7 +36,7 @@ namespace Izio.Umbraco.Emailer.Installation
             }
             catch (Exception ex)
             {
-                LogHelper.Error<LanguageHelper>("Failed to add section to dashboard", ex);
+                LogHelper.Error<DashboardHelper>("Failed to add section to dashboard", ex);
 
                 return false;
             }
@@ -70,7 +70,7 @@ namespace Izio.Umbraco.Emailer.Installation
             }
             catch (Exception ex)
             {
-                LogHelper.Error<LanguageHelper>("Failed to remove section from dashboard", ex);
+                LogHelper.Error<DashboardHelper>("Failed to remove section from dashboard", ex);
 
                 return false;
             }

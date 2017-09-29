@@ -1,8 +1,7 @@
-/// <binding AfterBuild='build' ProjectOpened='build' />
 module.exports = function (grunt) {
 
     var name = "Izio.Umbraco.Emailer";
-    var version = "1.0.1";
+    var version = "1.0.2";
     var namespace = "Izio.Umbraco";
     var source = "../Izio.umbraco.Emailer/";
     var destination = "../Izio.umbraco.Emailer.Package/";

@@ -14,19 +14,18 @@ namespace Izio.Umbraco.Emailer.Installation
         public bool Execute(string packageName, XmlNode xmlData)
         {
             DatabaseHelper.CreateDatabase();
-            PermissionHelper.GrantPermissions();
-            LanguageHelper.AddLanguageTranslations();
             DashboardHelper.AddDashboardSection();
+            PermissionHelper.GrantPermissions();
+            
 
             return true;
         }
 
         public bool Undo(string packageName, XmlNode xmlData)
         {
-            DatabaseHelper.DeleteDatabase();
-            LanguageHelper.RemoveLanguageFiles();
             PermissionHelper.RevokePermissions();
             DashboardHelper.RemoveDashboardSection();
+            DatabaseHelper.DeleteDatabase();
 
             return true;
         }

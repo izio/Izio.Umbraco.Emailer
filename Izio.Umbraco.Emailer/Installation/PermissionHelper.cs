@@ -17,18 +17,18 @@ namespace Izio.Umbraco.Emailer.Installation
         {
             if (UmbracoContext.Current.Security.CurrentUser != null)
             {
-                var recordCount = Db.ExecuteScalar<int>("SELECT COUNT(*) FROM umbracoUser2app WHERE [user] = @0 AND app = 'izioEmailer'", UmbracoContext.Current.Security.CurrentUser.Id);
+                var recordCount = Db.ExecuteScalar<int>("SELECT COUNT(*) FROM umbracoUserGroup2App WHERE userGroupId = 1 AND app = 'izioEmailer'");
 
                 if (recordCount == 0)
                 {
-                    Db.Execute("INSERT INTO umbracoUser2app ([user], app) VALUES  (@0, 'izioEmailer')", UmbracoContext.Current.Security.CurrentUser.Id);
+                    Db.Execute("INSERT INTO umbracoUserGroup2App (userGroupId, app) VALUES  (@0, 'izioEmailer')", 1);
                 }
             }
         }
 
         public static void RevokePermissions()
         {
-            Db.Execute("DELETE FROM umbracoUser2app WHERE app = 'izioEmailer';");
+            Db.Execute("DELETE FROM umbracoUserGroup2App WHERE app = 'izioEmailer';");
         }
     }
 }
